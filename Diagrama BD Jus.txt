@@ -1,0 +1,60 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table dim_juiz {
+  id uuid [pk]
+  juiz varchar(128) 
+  Vara varchar(128)
+  tipo_processo varchar(128)
+}
+
+Table dim_pessoa {
+  id  [pk]
+  cliente varchar
+  cpf varchar
+  endereco varchar
+  cidade varchar
+  estado varchar
+  faixa etaria varchar
+  status_pessoa [reu ou autor] varchar
+  numero_do_processo varchar
+
+}
+Table dim_advogado
+  id[pk]
+  advogado varchar
+  oab varchar
+  especialidade varchar
+  tipo_processo varchar
+
+
+}
+
+Table fato_processo {
+ id [pk]
+ id_pessoa INT
+ id_juiz INT
+ id_advogado INT
+ status [Em andamento, Suspenso, Arquivado e Encerrado] varchar
+ conciliacao [false ou true] boolean
+ valor_causa nuemeric(15,2)
+ resultado do processo [ganho ou perda] varchar
+ data_inicio_processo date
+ data_fim_processo date 
+ numero_do_processo varchar
+ 
+}
+
+Table d_calendario {
+  data [date]
+ 
+}
+
+
+// Foreign key relationships
+Ref: dim_juiz.id > fato_processo.id_juiz
+Ref: dim_pessoa.id > fato_processo.id_pessoa
+Ref: dim_advogado.id > fato_processo.id_advogado
+Ref: d_calendario.data > fato_processo.data_inicio_processo
+
+

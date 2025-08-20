@@ -1,0 +1,6 @@
+texto #d9d9d9
+fundo #080016
+fatia rotulo autores #5B6B00
+fatia rotulo réus #AB222C
+cartao negativo #9A0814
+fatia pizza verde claro #BFC5A0
